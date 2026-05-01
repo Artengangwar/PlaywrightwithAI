@@ -13,7 +13,9 @@ def test_main_page_heading_and_login_button():
     log_step("Main heading is visible")
     main_page.click_login_register()
     log_step("Clicked Login/Register button")
-    page.wait_for_timeout(1000)
+    # Wait for the next page to load (e.g., language selection)
+    page.wait_for_selector('text=Choose Your Language', timeout=5000)
+    log_step("Language selection page loaded")
+    page.close()
     browser.close()
     playwright.stop()
-
