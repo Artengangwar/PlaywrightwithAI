@@ -1,0 +1,4 @@
+# Minimal requirements for the AutomationFramework structure
+pytest
+# Add other dependencies (playwright, pytest-playwright) as needed when you implement tests
+
