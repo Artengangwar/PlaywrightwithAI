@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="/test_main_page (snapshot).py">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="/test_main_page (snapshot).py" />
+              <option name="originalContent" value="from manager.browser_manager import get_browser&#10;from pages.main_page import MainPage&#10;from config.config import BASE_URL&#10;from utils.report import log_step&#10;&#10;def test_main_page_heading_and_login_button():&#10;    browser, playwright = get_browser()&#10;    page = browser.new_page()&#10;    main_page = MainPage(page)&#10;    log_step(f&quot;Opening {BASE_URL}&quot;)&#10;    main_page.goto(BASE_URL)&#10;    assert main_page.is_main_heading_visible(), &quot;Main heading is not visible!&quot;&#10;    log_step(&quot;Main heading is visible&quot;)&#10;    main_page.click_login_register()&#10;    log_step(&quot;Clicked Login/Register button&quot;)&#10;    # Wait for the next page to load (e.g., language selection)&#10;    page.wait_for_selector('text=Choose Your Language', timeout=5000)&#10;    log_step(&quot;Language selection page loaded&quot;)&#10;    page.close()&#10;    browser.close()&#10;    playwright.stop()&#10;" />
+              <option name="updatedContent" value="from manager.browser_manager import get_browser&#10;from pages.main_page import MainPage&#10;from config.config import BASE_URL&#10;from utils.report import log_step&#10;&#10;def test_main_page_heading_and_login_button():&#10;    browser, playwright = get_browser()&#10;    page = browser.new_page()&#10;    main_page = MainPage(page)&#10;    log_step(f&quot;Opening {BASE_URL}&quot;)&#10;    main_page.goto(BASE_URL)&#10;    assert main_page.is_main_heading_visible(), &quot;Main heading is not visible!&quot;&#10;    log_step(&quot;Main heading is visible&quot;)&#10;    main_page.click_login_register()&#10;    log_step(&quot;Clicked Login/Register button&quot;)&#10;    # Wait for the next page to load (e.g., language selection)&#10;    try:&#10;        page.wait_for_selector('text=Choose Your Language', timeout=7000)&#10;        log_step(&quot;Language selection page loaded&quot;)&#10;    except Exception as e:&#10;        page.screenshot(path=&quot;main_page_error.png&quot;)&#10;        raise AssertionError(f&quot;Language selection page did not load: {e}&quot;)&#10;    finally:&#10;        page.close()&#10;        browser.close()&#10;        playwright.stop()" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
