@@ -1,4 +1,5 @@
 # Minimal requirements for the AutomationFramework structure
 pytest
-# Add other dependencies (playwright, pytest-playwright) as needed when you implement tests
-
+# Playwright for Python + pytest plugin to provide the `page` fixture
+playwright
+pytest-playwright
